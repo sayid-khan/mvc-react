@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const routLink=require("./src/routes/appRoutes")//import router
 const cors = require("cors");
 
@@ -19,15 +19,15 @@ app.use(express.static(__dirname + '/public'));
 app.use(cors(corsOptions));//allow cors Origen 
 
 
-mongoose.connect('mongodb://localhost:27017/mydb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}); //mongo db connection
+// mongoose.connect('mongodb://localhost:27017/mydb', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }); //mongo db connection
 
-var conn = mongoose.connection;
-conn.on('connected', function() {
-    console.log('database is connected successfully');
-});
+// var conn = mongoose.connection;
+// conn.on('connected', function() {
+//     console.log('database is connected successfully');
+// });
 
 app.use(express.json());
 app.use('/', routLink); //router prefix
